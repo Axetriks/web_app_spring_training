@@ -1,7 +1,7 @@
 package fr.lernejo.todo;
 
 import java.util.ArrayList;
-
+import java.lang.Throwable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -31,7 +31,7 @@ public class TodoListController {
     public void addTodo(@RequestBody Todo newTodo){
         
         if(newTodo == null){
-            throw new ServerErrorException("Nothing to add");
+            throw new ServerErrorException("Nothing added", (Throwable) null);
         }else this.todos.add(newTodo);    
     }
 }
